@@ -56,6 +56,7 @@
 gpu-id=0
 #net-scale-factor=0.0174
 #offsets=123.675;116.28;103.53
+net-scale-factor=0.00392
 onnx-file=/usr/emotion-ds/data/models/yolo_face.onnx
 model-engine-file=/usr/emotion-ds/data/models/yolo_face.onnx_b2_gpu0_fp16.engine
 labelfile-path=/usr/emotion-ds/data/tags/face-label.txt
@@ -69,7 +70,7 @@ network-type=1
 model-color-format=0
 gpu-id=0
 gie-unique-id=1
-output-blob-names=output
+output-blob-names=output0
 num-detected-classes=1
 classifier-async-mode=0
 classifier-threshold=0.4

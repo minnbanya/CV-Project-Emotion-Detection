@@ -1,0 +1,27 @@
+Creating source_bin  0  
+ 
+file:///usr/emotion-ds/testVideos/output.mp4
+Creating source bin
+source-bin-00
+Decodebin child added: nvurisrc_bin_src_elem 
+
+Decodebin child added: nvurisrc_bin_queue 
+
+Decodebin child added: nvurisrc_bin_nvvidconv_elem 
+
+Decodebin child added: nvurisrc_bin_src_cap_filter_nvvidconv 
+
+In cb_newpad
+
+gstname= video/x-raw
+features= <Gst.CapsFeatures object at 0x7a6f2d4a2b60 (GstCapsFeatures at 0x7a6e7833b220)>
+Pipeline interrupted
+INFO: ../nvdsinfer/nvdsinfer_model_builder.cpp:610 [FullDims Engine Info]: layers num: 3
+0   INPUT  kFLOAT input           1x48x48         min: 1x1x48x48       opt: 2x1x48x48       Max: 2x1x48x48       
+1   OUTPUT kFLOAT output          7               min: 0               opt: 0               Max: 0               
+2   OUTPUT kFLOAT 76              7               min: 0               opt: 0               Max: 0               
+
+INFO: ../nvdsinfer/nvdsinfer_model_builder.cpp:610 [FullDims Engine Info]: layers num: 2
+0   INPUT  kFLOAT images          3x640x640       min: 1x3x640x640     opt: 2x3x640x640     Max: 2x3x640x640     
+1   OUTPUT kFLOAT output0         5x8400          min: 0               opt: 0               Max: 0               
+
