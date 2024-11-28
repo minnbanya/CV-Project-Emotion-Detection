@@ -48,7 +48,7 @@ def probe_inference_metadata(pad, info, user_data):
 
     if batch_meta:
         # Process metadata here (NvDsBatchMeta)
-        print("Found metadata in buffer.")
+        # print("Found metadata in buffer.")
         # Access the metadata contained in the batch_meta
         # batch_meta = batch_meta.data  # This is where your batch metadata is stored
         l_frame = batch_meta.frame_meta_list
@@ -58,12 +58,13 @@ def probe_inference_metadata(pad, info, user_data):
             except StopIteration:
                 break
             # Process frame metadata, which holds detection results
-            print("Frame Metadata: ", frame_meta)
+            # print("Frame Metadata: ", frame_meta)
 
             # Access objects detected in the frame
             # object_meta = frame_meta.obj_meta_list
             l_obj = frame_meta.obj_meta_list
-
+            if l_obj is None:
+                print("NO DETECTIONS")
             while l_obj is not None:        
                 try:
                     obj_meta = pyds.NvDsObjectMeta.cast(l_obj.data)
@@ -159,7 +160,7 @@ def main(args):
         sys.exit(1)
 
     # Connect this probe to the metadata flow from `nvinfer` to `nvdsosd`
-    streammux.get_static_pad('src').add_probe(Gst.PadProbeType.BUFFER, probe_inference_metadata, None)
+    pgie.get_static_pad('src').add_probe(Gst.PadProbeType.BUFFER, probe_inference_metadata, None)
     # Start the pipeline
     pipeline.set_state(Gst.State.PLAYING)
 
